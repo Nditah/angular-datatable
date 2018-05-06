@@ -25,3 +25,55 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Here, we’re going to use Angular CLI to install and setup an Angular 5 app.
+
+Let’s install the Angular CLI with version 1.5.3.
+
+> npm install -g @angular/cli@1.5.3
+
+## Now, let’s create an app with below command.
+
+> ng new angular5-datatable
+## Install DataTable In Our Angular App
+Firstly, we need to install the dependencies required for DataTable.
+So, let’s do that for jQuery.
+
+> npm install jquery --save
+## Now, install the datatables.
+
+> npm install datatables.net --save
+> npm install datatables.net-dt --save
+## Now, install the angular datatables.
+
+> npm install angular-datatables --save
+## Here, are few more.
+
+> npm install @types/jquery --save-dev
+> npm install @types/datatables.net --save-dev
+Secondly, we’ve to import the jQuery and DataTable JS/CSS in our app.
+
+## Here, you just need to add necessary CSS and Js in angular-cli.json to make it used in our app.
+>...
+>  "styles": [
+        "../node_modules/datatables.net-dt/css/jquery.dataTables.css"
+      ],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/datatables.net/js/jquery.dataTables.js"
+      ],
+>...
+
+## Finally, we need to import the DataTableModule in our main module to make it available for all the components and allow them to start using DataTable: /src/app/app.module.ts
+
+//Import DataTable
+import { DataTablesModule } from 'angular-datatables';
+
+...
+
+  imports: [
+    BrowserModule,
+    DataTablesModule
+  ],
+
+  ## Learnt from https://www.thetechieshouse.com/simple-angular-5-datatable-example-tutorial/
